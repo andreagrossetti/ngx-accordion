@@ -1,0 +1,13 @@
+<div [class.active]="active" [class.children-active]="hasAccordionElementActive">
+  <div (click)="accordionGroupClick()" class="title">
+    <ng-content></ng-content>
+    <div *ngIf="showGroupExpandedSymbol" class="expand-symbol">
+      <div *ngIf="active">-</div>
+      <div *ngIf="!active">+</div>
+    </div>
+  </div>
+  <div class="content">
+    <ng-content select="ngx-accordion-element"></ng-content>
+  </div>
+
+</div>

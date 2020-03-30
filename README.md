@@ -1,6 +1,14 @@
 # NgxAccordion
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+An angular accordion component.
+Both accordion groups and accordion elements can be selected.
+
+Expand symbol can be hidden setting ```showGroupExpandedSymbol``` to false.
+
+## Installation
+```
+yarn add ngx-accordion
+```
 
 ## Development server
 
@@ -12,7 +20,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build ngx-toastr --prod` to build the project.
 
 ## Running unit tests
 

@@ -1,0 +1,19 @@
+{
+  "name": "@andreagrossetti/ngx-accordion",
+  "description": "Angular accordion component",
+  "email" : "andrea_grossetti@yahoo.it",
+  "keywords": [
+    "angular",
+    "accordion",
+    "ng",
+    "ng2",
+    "angular2"
+  ],
+  "version": "0.0.2",
+  "peerDependencies": {
+    "@angular/common": "^9.1.0",
+    "@angular/core": "^9.1.0",
+    "@angular/platform-browser": "^9.1.0",
+    "tslib": "^1.10.0"
+  }
+}
