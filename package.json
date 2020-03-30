@@ -1,6 +1,6 @@
 {
   "author": "Andrea Grossetti",
-  "name": "ngx-accordion",
+  "name": "@andreagrossetti/ngx-accordion",
   "description": "Angular accordion component",
   "email" : "andrea_grossetti@yahoo.it",
   "version": "0.0.1",
