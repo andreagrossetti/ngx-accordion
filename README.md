@@ -1,35 +1,64 @@
 # NgxAccordion
 
-An angular accordion component.
-Both accordion groups and accordion elements can be selected.
+I've build this angular accordion because other accordions were outdated or could not expand accordion group's inner elements as well as accordion groups.
 
-Expand symbol can be hidden setting ```showGroupExpandedSymbol``` to false.
+## Demo
+https://ngx-accordion.stackblitz.io
 
 ## Installation
+```bash
+yarn add @andreagrossetti/ngx-accordion
 ```
-yarn add ngx-accordion
+
+## Setup
+```typescript
+import { AccordionModule } from '@andreagrossetti/ngx-accordion';
+import { BrowserModule } from '@angular/platform-browser';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    BrowserModule,
+    AccordionModule // ngx-accordion added
+  ],
+  bootstrap: [App],
+  declarations: [App]
+})
+class MainModule {}
 ```
 
-## Development server
+## Use
+```html
+<ngx-accordion>
+  <ngx-accordion-group>
+    Devices
+    <ngx-accordion-element>Groups</ngx-accordion-element>
+    <ngx-accordion-element>Firmware</ngx-accordion-element>
+  </ngx-accordion-group>
+  <ngx-accordion-group [startActive]="startActive">
+    Users
+    <ngx-accordion-element>Roles</ngx-accordion-element>
+  </ngx-accordion-group>
+  <ngx-accordion-group>
+    Analytics
+    <ngx-accordion-element>Data</ngx-accordion-element>
+  </ngx-accordion-group>
+  <ngx-accordion-group>
+    Help & Support
+  </ngx-accordion-group>
+</ngx-accordion>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
 
-## Code scaffolding
+## Options
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### AccordionGroup options
+| Option                  | Type    | Default | Description                               |
+|-------------------------|---------|---------|-------------------------------------------|
+| startActive             | boolean | false   | Initial status of Accordion Group         |
+| showGroupExpandedSymbol | boolean | true    | Show + or - symbol if group is expanded.  |
 
-## Build
-
-Run `ng build ngx-toastr --prod` to build the project.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### AccordionElement options
+| Option      | Type    | Default | Description                        |
+|-------------|---------|---------|------------------------------------|
+| startActive | boolean | false   | Initial status of Accordion Element|
