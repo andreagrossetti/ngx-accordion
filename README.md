@@ -1,9 +1,10 @@
 # NgxAccordion
+<img src="https://github.com/andreagrossetti/ngx-accordion/raw/master/projects/ngx-accordion-showcase/src/assets/screenshot.png" alt="drawing" width="150"/>
 
 I've build this angular accordion because other accordions were outdated or could not expand accordion group's inner elements as well as accordion groups.
 
 ## Demo
-https://ngx-accordion.stackblitz.io
+https://stackblitz.com/edit/ngx-accordion
 
 ## Installation
 ```bash
