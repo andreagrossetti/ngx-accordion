@@ -20,10 +20,10 @@ export class AccordionComponent {
     this.accordionGroups.push(accordionGroup)
   }
 
-  accordionGroupSelected(group: AccordionGroupComponent) {
+  setAccordionGroupStatus(group: AccordionGroupComponent, status: boolean) {
     this.accordionGroups.forEach(e => {
       if (e == group) {
-        e.setActive(!e.active);
+        e.setActive(status);
       }
       if (e !== group) {
         e.setActive(false);

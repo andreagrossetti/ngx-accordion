@@ -1,17 +1,19 @@
 \:host
   display: block
   cursor: pointer
-  .active
-    .title
+  .ngx-accordion-group-active
+    .ngx-accordion-heading
       font-weight: bold
-    .content
+    .ngx-accordion-group-content
       display: block
     &.children-active
-      .title
+      .ngx-accordion-heading
         font-weight: normal
-  .content
+  .ngx-accordion-group-content
     display: none
-  .title
+  .ngx-accordion-heading
     display: flex
+  .ngx-accordion-heading-title
+    flex: 1
   .expand-symbol
     margin: 0 0.5rem

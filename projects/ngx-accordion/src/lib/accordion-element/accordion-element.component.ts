@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { AccordionGroupComponent } from '../accordion-group/accordion-group.component';
 
 @Component({
@@ -7,6 +7,7 @@ import { AccordionGroupComponent } from '../accordion-group/accordion-group.comp
   styleUrls: ['./accordion-element.component.sass']
 })
 export class AccordionElementComponent implements OnInit {
+  @Input() startActive: boolean;
   public active: boolean;
   protected accordionGroup: AccordionGroupComponent
 
@@ -16,9 +17,12 @@ export class AccordionElementComponent implements OnInit {
 
   ngOnInit(): void {
     this.accordionGroup.addElement(this);
+    if (this.startActive) {
+      this.accordionGroup.accordionElementSelected(this);
+    }
   }
 
-  clicked() {
+  hasBeenSelected() {
     this.accordionGroup.accordionElementSelected(this);
   }
 

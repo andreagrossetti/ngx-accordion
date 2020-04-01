@@ -9,11 +9,10 @@
     "ng2",
     "angular2"
   ],
-  "version": "0.0.2",
+  "version": "0.0.6",
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
-    "@angular/platform-browser": "^9.1.0",
     "tslib": "^1.10.0"
   }
 }

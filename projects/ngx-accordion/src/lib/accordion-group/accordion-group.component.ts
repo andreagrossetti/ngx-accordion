@@ -8,7 +8,7 @@ import { AccordionElementComponent } from '../accordion-element/accordion-elemen
   styleUrls: ['./accordion-group.component.sass']
 })
 export class AccordionGroupComponent implements OnInit {
-  @Input() startOpen: boolean;
+  @Input() startActive: boolean;
   public active: boolean;
   public hasAccordionElementActive: boolean;
   public showGroupExpandedSymbol: boolean;
@@ -21,23 +21,28 @@ export class AccordionGroupComponent implements OnInit {
 
   ngOnInit(): void {
     this.accordionElements = [];
-    this.active = this.startOpen;
     this.accordion.addAccordionGroup(this);
+    if (this.startActive) {
+      this.accordion.setAccordionGroupStatus(this, true);
+    }
   }
 
   accordionGroupClick() {
-    this.accordion.accordionGroupSelected(this);
+    if (this.hasAccordionElementActive && this.active) {
+      this.accordion.setAccordionGroupStatus(this, true);
+    } else {
+      this.accordion.setAccordionGroupStatus(this, !this.active);
+    }
   }
 
-  setActive(status) {
-    if (status === false) {
-      this.hasAccordionElementActive = false;
-      this.accordionElements.forEach(e => { e.setActive(false); })
-    }
+  setActive(status: boolean) {
+    this.hasAccordionElementActive = false;
+    this.accordionElements.forEach(e => { e.setActive(false); })
     this.active = status;
   }
 
   accordionElementSelected(element: AccordionElementComponent) {
+    this.accordion.setAccordionGroupStatus(this, true);
     this.hasAccordionElementActive = true;
     this.accordionElements.forEach(e => { if (e !== element) { e.setActive(false); } })
     element.setActive(true);
