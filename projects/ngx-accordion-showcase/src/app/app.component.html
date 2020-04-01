@@ -1,18 +1,18 @@
 <ngx-accordion>
   <ngx-accordion-group>
-    - Devices
+    <fa-icon [icon]="faBarcode"></fa-icon> Devices
     <ngx-accordion-element>Groups</ngx-accordion-element>
     <ngx-accordion-element>Firmware</ngx-accordion-element>
   </ngx-accordion-group>
-  <ngx-accordion-group>
-    - Users
+  <ngx-accordion-group [startActive]="startActive">
+    <fa-icon [icon]="faUser"></fa-icon> Users
     <ngx-accordion-element>Roles</ngx-accordion-element>
   </ngx-accordion-group>
   <ngx-accordion-group>
-    - Analytics
-    <ngx-accordion-element>Roles</ngx-accordion-element>
+    <fa-icon [icon]="faChartBar"></fa-icon> Analytics
+    <ngx-accordion-element>Data</ngx-accordion-element>
   </ngx-accordion-group>
   <ngx-accordion-group>
-    - Help & Support
+    <fa-icon [icon]="faQuestionCircle"></fa-icon> Help & Support
   </ngx-accordion-group>
 </ngx-accordion>

@@ -1,6 +1,26 @@
+
 \:host
+  display: block
+  width: 300px
+  background: rgba(0,0,0,.08)
+  padding: 1rem
+  height: 400px
+  font-size: 1rem
   ngx-accordion
+    color: #9d9d9d
     ::ng-deep
+      fa-icon
+        display: inline-block
+        padding-right: 0.5rem
       ngx-accordion-group
-        .content
-          padding-left: 1rem
+        padding: 0.75rem 0
+        border-bottom: 1px #c2c2c2 solid
+        .ngx-accordion-group-content
+          padding: 0.25rem 0
+          padding-left: 1.65rem
+        .ngx-accordion-group-active
+          color: #000
+      ngx-accordion-element
+        padding: 0.25rem 0
+        .ngx-accordion-element-active
+          color: #000
