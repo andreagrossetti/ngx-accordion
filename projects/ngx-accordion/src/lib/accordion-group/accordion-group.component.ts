@@ -47,7 +47,6 @@ export class AccordionGroupComponent implements OnInit, OnChanges {
   setActive(status: boolean) {
     this.hasAccordionGroupChildActive = false;
     this.accordionGroupChildren.forEach(e => { e.setActive(false); })
-    console.log('Group: setting group active', status)
     this.active = status;
   }
 
