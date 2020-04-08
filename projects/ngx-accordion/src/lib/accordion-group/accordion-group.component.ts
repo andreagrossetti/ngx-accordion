@@ -1,34 +1,43 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Inject } from '@angular/core';
 import { AccordionComponent } from '../accordion.component';
-import { AccordionElementComponent } from '../accordion-element/accordion-element.component';
+import { AccordionGroupChildComponent } from '../accordion-group-child/accordion-group-child.component';
 
 @Component({
   selector: 'ngx-accordion-group',
   templateUrl: './accordion-group.component.html',
   styleUrls: ['./accordion-group.component.sass']
 })
-export class AccordionGroupComponent implements OnInit {
-  @Input() startActive: boolean;
-  public active: boolean;
-  public hasAccordionElementActive: boolean;
+export class AccordionGroupComponent implements OnInit, OnChanges {
+  @Input() active: boolean;
+  @Input() handleActiveStateManually: boolean;
+  public hasAccordionGroupChildActive: boolean;
   public showGroupExpandedSymbol: boolean;
   private accordion: AccordionComponent
-  private accordionElements: AccordionElementComponent[];
+  private accordionGroupChildren: AccordionGroupChildComponent[];
   constructor(@Inject(AccordionComponent) accordion: AccordionComponent) {
     this.accordion = accordion;
     this.showGroupExpandedSymbol = accordion.showGroupExpandedSymbol;
   }
 
   ngOnInit(): void {
-    this.accordionElements = [];
+    this.accordionGroupChildren = [];
     this.accordion.addAccordionGroup(this);
-    if (this.startActive) {
-      this.accordion.setAccordionGroupStatus(this, true);
+  }
+
+  ngOnChanges(changes) {
+    const newValue = changes.active.currentValue;
+    if (newValue !== this.active) {
+      this.accordion.setAccordionGroupStatus(this, newValue);
     }
   }
 
   accordionGroupClick() {
-    if (this.hasAccordionElementActive && this.active) {
+    if (this.handleActiveStateManually) {
+      this.accordionGroupChildren.forEach(e => { e.setActive(false); })
+      this.hasAccordionGroupChildActive = false;
+      return;
+    }
+    if (this.hasAccordionGroupChildActive && this.active) {
       this.accordion.setAccordionGroupStatus(this, true);
     } else {
       this.accordion.setAccordionGroupStatus(this, !this.active);
@@ -36,20 +45,23 @@ export class AccordionGroupComponent implements OnInit {
   }
 
   setActive(status: boolean) {
-    this.hasAccordionElementActive = false;
-    this.accordionElements.forEach(e => { e.setActive(false); })
+    this.hasAccordionGroupChildActive = false;
+    this.accordionGroupChildren.forEach(e => { e.setActive(false); })
+    console.log('Group: setting group active', status)
     this.active = status;
   }
 
-  accordionElementSelected(element: AccordionElementComponent) {
-    this.accordion.setAccordionGroupStatus(this, true);
-    this.hasAccordionElementActive = true;
-    this.accordionElements.forEach(e => { if (e !== element) { e.setActive(false); } })
-    element.setActive(true);
+  accordionGroupChildSelected(groupChild: AccordionGroupChildComponent) {
+    if (!this.active) {
+      this.accordion.setAccordionGroupStatus(this, true);
+    }
+    this.hasAccordionGroupChildActive = true;
+    this.accordionGroupChildren.forEach(e => { if (e !== groupChild) { e.setActive(false); } })
+    groupChild.setActive(true);
   }
 
-  addElement(element: AccordionElementComponent) {
-    this.accordionElements.push(element);
+  addGroupChild(groupChild: AccordionGroupChildComponent) {
+    this.accordionGroupChildren.push(groupChild);
   }
 
 }

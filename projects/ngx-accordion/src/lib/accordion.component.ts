@@ -23,9 +23,10 @@ export class AccordionComponent {
   setAccordionGroupStatus(group: AccordionGroupComponent, status: boolean) {
     this.accordionGroups.forEach(e => {
       if (e == group) {
+        console.log('Accordion: asking group to set group active', status)
         e.setActive(status);
       }
-      if (e !== group) {
+      if (e !== group && e.active) {
         e.setActive(false);
       }
     })

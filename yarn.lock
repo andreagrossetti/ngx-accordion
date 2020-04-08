@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@andreagrossetti/ngx-accordion@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@andreagrossetti/ngx-accordion/-/ngx-accordion-0.0.5.tgz#2842fab053fbaa7085fb70c2659b6ddc5f44895a"
-  integrity sha512-I32RbNOgNiVUHBzN8ZbP1+ueOdwfuTM65zlx5UwoBod47nwljM6mbRNu7dtIUFvUzQnXOW/bq0BZY2lSwLbkJQ==
-
 "@angular-devkit/architect@0.901.0":
   version "0.901.0"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.901.0.tgz#c660cb76e3bd35fc294d8e8578782b83157924aa"

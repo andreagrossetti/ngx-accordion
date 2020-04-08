@@ -1,18 +1,78 @@
-<ngx-accordion>
-  <ngx-accordion-group>
-    <fa-icon [icon]="faBarcode"></fa-icon> Devices
-    <ngx-accordion-element>Groups</ngx-accordion-element>
-    <ngx-accordion-element>Firmware</ngx-accordion-element>
-  </ngx-accordion-group>
-  <ngx-accordion-group [startActive]="startActive">
-    <fa-icon [icon]="faUser"></fa-icon> Users
-    <ngx-accordion-element>Roles</ngx-accordion-element>
-  </ngx-accordion-group>
-  <ngx-accordion-group>
-    <fa-icon [icon]="faChartBar"></fa-icon> Analytics
-    <ngx-accordion-element>Data</ngx-accordion-element>
-  </ngx-accordion-group>
-  <ngx-accordion-group>
-    <fa-icon [icon]="faQuestionCircle"></fa-icon> Help & Support
-  </ngx-accordion-group>
-</ngx-accordion>
+<div class="accordions">
+
+  <div class="accordion">
+    <h2>Standard accordion</h2>
+    <ngx-accordion>
+      <ngx-accordion-group>
+        <ngx-accordion-group-element>
+          <fa-icon [icon]="faAppleAlt"></fa-icon> Fruits
+        </ngx-accordion-group-element>
+        <ngx-accordion-group-child> Banana</ngx-accordion-group-child>
+        <ngx-accordion-group-child> Orange</ngx-accordion-group-child>
+      </ngx-accordion-group>
+      <ngx-accordion-group [active]="true">
+        <ngx-accordion-group-element>
+          <fa-icon [icon]="faCarrot"></fa-icon> Vegetables
+        </ngx-accordion-group-element>
+        <ngx-accordion-group-child>Carrot</ngx-accordion-group-child>
+      </ngx-accordion-group>
+      <ngx-accordion-group>
+        <ngx-accordion-group-element>
+          <fa-icon [icon]="faCookie"></fa-icon> Cookies
+        </ngx-accordion-group-element>
+        <ngx-accordion-group-child>Butter cookie</ngx-accordion-group-child>
+        <ngx-accordion-group-child>Macaron</ngx-accordion-group-child>
+      </ngx-accordion-group>
+      <ngx-accordion-group>
+        <ngx-accordion-group-element>
+          <fa-icon [icon]="faBook"></fa-icon> Books
+        </ngx-accordion-group-element>
+      </ngx-accordion-group>
+    </ngx-accordion>
+  </div>
+
+  <div class="accordion">
+    <h2>Accordion with anchor links</h2>
+    <ngx-accordion>
+      <ngx-accordion-group [active]="fruitsLink.isActive" [handleActiveStateManually]="true">
+        <ngx-accordion-group-element>
+          <a #fruitsLink="routerLinkActive" [routerLink]="['/fruits']" routerLinkActive>
+            <fa-icon [icon]="faAppleAlt"></fa-icon> Fruits url
+          </a>
+        </ngx-accordion-group-element>
+        <ngx-accordion-group-child [active]="bananaLink.isActive"><a [routerLink]="['/fruits', 'banana']"
+            routerLinkActive #bananaLink="routerLinkActive"> Banana url</a></ngx-accordion-group-child>
+        <ngx-accordion-group-child [active]="orangeLink.isActive"><a [routerLink]="['/fruits', 'orange']"
+            routerLinkActive #orangeLink="routerLinkActive"> Orange url</a></ngx-accordion-group-child>
+      </ngx-accordion-group>
+      <ngx-accordion-group [active]="vegetablesLink.isActive" [handleActiveStateManually]="true">
+        <ngx-accordion-group-element>
+          <a #vegetablesLink="routerLinkActive" [routerLink]="['/vegetables']" routerLinkActive>
+            <fa-icon [icon]="faCarrot"></fa-icon> Vegetables
+          </a>
+        </ngx-accordion-group-element>
+        <ngx-accordion-group-child [active]="carrotLink.isActive"> <a #carrotLink="routerLinkActive"
+            [routerLink]="['/vegetables', 'carrot']" routerLinkActive>Carrot</a></ngx-accordion-group-child>
+      </ngx-accordion-group>
+      <ngx-accordion-group [active]="cookiesLink.isActive" [handleActiveStateManually]="true">
+        <ngx-accordion-group-element>
+          <a #cookiesLink="routerLinkActive" [routerLink]="['/cookies']" routerLinkActive>
+            <fa-icon [icon]="faCookie"></fa-icon> Cookies
+          </a>
+        </ngx-accordion-group-element>
+        <ngx-accordion-group-child [active]="butterCookieLink.isActive"> <a #butterCookieLink="routerLinkActive"
+            [routerLink]="['/cookies', 'butter-cookie']" routerLinkActive>Butter cookie</a></ngx-accordion-group-child>
+        <ngx-accordion-group-child [active]="macaronLink.isActive"> <a #macaronLink="routerLinkActive"
+            [routerLink]="['/cookies', 'macaron']" routerLinkActive>Macaron</a></ngx-accordion-group-child>
+      </ngx-accordion-group>
+      <ngx-accordion-group [active]="booksLink.isActive" [handleActiveStateManually]="true">
+        <ngx-accordion-group-element>
+          <a #booksLink="routerLinkActive" [routerLink]="['/books']" routerLinkActive>
+            <fa-icon [icon]="faBook"></fa-icon> Books
+          </a>
+        </ngx-accordion-group-element>
+      </ngx-accordion-group>
+    </ngx-accordion>
+  </div>
+
+</div>
