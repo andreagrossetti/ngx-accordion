@@ -77,7 +77,7 @@ Open demo for more examples
 | showGroupExpandedSymbol | boolean | true    | Show + or - symbol if group is expanded.               |
 | handleStateManually     | boolean | false   | handle active state manually (needed for anchor links) | 
 
-### AccordionElement options
+### AccordionGroupChild options
 | Option      | Type    | Default | Description                        |
 |-------------|---------|---------|------------------------------------|
 | active      | boolean | false   | Initial status of Accordion Element|
