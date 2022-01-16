@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AccordionGroupElementComponent } from './accordion-group-element.component';
 
@@ -6,7 +6,7 @@ describe('AccordionGroupElementComponent', () => {
   let component: AccordionGroupElementComponent;
   let fixture: ComponentFixture<AccordionGroupElementComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AccordionGroupElementComponent ]
     })
