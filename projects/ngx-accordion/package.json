@@ -9,12 +9,12 @@
     "ng2",
     "angular2"
   ],
-  "version": "0.3.1",
+  "version": "0.3.2",
   "dependencies": {
     "tslib": "^2.3.1"
   },
   "peerDependencies": {
-    "@angular/common": "^^13.1.3",
-    "@angular/core": "^^13.1.3"
+    "@angular/common": "^13.1.3",
+    "@angular/core": "^13.1.3"
   }
 }
