@@ -3,9 +3,10 @@ import { AccordionComponent } from '../accordion.component';
 import { AccordionGroupChildComponent } from '../accordion-group-child/accordion-group-child.component';
 
 @Component({
-  selector: 'ngx-accordion-group',
-  templateUrl: './accordion-group.component.html',
-  styleUrls: ['./accordion-group.component.sass']
+    selector: 'ngx-accordion-group',
+    templateUrl: './accordion-group.component.html',
+    styleUrls: ['./accordion-group.component.sass'],
+    standalone: false
 })
 export class AccordionGroupComponent implements OnInit, OnChanges {
   @Input() active: boolean;

@@ -3,10 +3,16 @@
     <div class="ngx-accordion-heading-title">
       <ng-content select="ngx-accordion-group-element"></ng-content>
     </div>
-    <div *ngIf="showGroupExpandedSymbol" class="expand-symbol">
-      <div *ngIf="active">-</div>
-      <div *ngIf="!active">+</div>
-    </div>
+    @if (showGroupExpandedSymbol) {
+      <div class="expand-symbol">
+        @if (active) {
+          <div>-</div>
+        }
+        @if (!active) {
+          <div>+</div>
+        }
+      </div>
+    }
   </div>
   <div class="ngx-accordion-group-content">
     <ng-content select="ngx-accordion-group-child"></ng-content>

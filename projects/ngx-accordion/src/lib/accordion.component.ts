@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { AccordionGroupComponent } from './accordion-group/accordion-group.component';
 
 @Component({
-  selector: 'ngx-accordion',
-  template: `
+    selector: 'ngx-accordion',
+    template: `
     <ng-content></ng-content>
   `,
-  styleUrls: ['./accordion.component.sass']
+    styleUrls: ['./accordion.component.sass'],
+    standalone: false
 })
 export class AccordionComponent {
   @Input() showGroupExpandedSymbol: boolean = true;
