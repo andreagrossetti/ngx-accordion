@@ -1,14 +1,15 @@
-import { Component, OnInit, OnChanges, Inject, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Inject, Input, ChangeDetectionStrategy, SimpleChanges } from '@angular/core';
 import { AccordionGroupComponent } from '../accordion-group/accordion-group.component';
 
 @Component({
     selector: 'ngx-accordion-group-child',
     templateUrl: './accordion-group-child.component.html',
     styleUrls: ['./accordion-group-child.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AccordionGroupChildComponent implements OnInit, OnChanges {
-  @Input() active: boolean;
+  @Input() active!: boolean;
   protected accordionGroup: AccordionGroupComponent
 
   constructor(@Inject(AccordionGroupComponent) accordionGroup: AccordionGroupComponent) {
@@ -19,7 +20,7 @@ export class AccordionGroupChildComponent implements OnInit, OnChanges {
     this.accordionGroup.addGroupChild(this);
   }
 
-  ngOnChanges(changes) {
+  ngOnChanges(changes: SimpleChanges) {
     if (changes.active.currentValue) {
       this.accordionGroup.accordionGroupChildSelected(this);
     }

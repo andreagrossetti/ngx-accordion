@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Inject } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Inject, ChangeDetectionStrategy, SimpleChanges } from '@angular/core';
 import { AccordionComponent } from '../accordion.component';
 import { AccordionGroupChildComponent } from '../accordion-group-child/accordion-group-child.component';
 
@@ -6,15 +6,16 @@ import { AccordionGroupChildComponent } from '../accordion-group-child/accordion
     selector: 'ngx-accordion-group',
     templateUrl: './accordion-group.component.html',
     styleUrls: ['./accordion-group.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AccordionGroupComponent implements OnInit, OnChanges {
-  @Input() active: boolean;
-  @Input() handleActiveStateManually: boolean;
-  public hasAccordionGroupChildActive: boolean;
+  @Input() active!: boolean;
+  @Input() handleActiveStateManually!: boolean;
+  public hasAccordionGroupChildActive!: boolean;
   public showGroupExpandedSymbol: boolean;
   private accordion: AccordionComponent
-  private accordionGroupChildren: AccordionGroupChildComponent[];
+  private accordionGroupChildren!: AccordionGroupChildComponent[];
   constructor(@Inject(AccordionComponent) accordion: AccordionComponent) {
     this.accordion = accordion;
     this.showGroupExpandedSymbol = accordion.showGroupExpandedSymbol;
@@ -25,7 +26,7 @@ export class AccordionGroupComponent implements OnInit, OnChanges {
     this.accordion.addAccordionGroup(this);
   }
 
-  ngOnChanges(changes) {
+  ngOnChanges(changes: SimpleChanges) {
     const newValue = changes.active.currentValue;
     if (newValue !== this.active) {
       this.accordion.setAccordionGroupStatus(this, newValue);

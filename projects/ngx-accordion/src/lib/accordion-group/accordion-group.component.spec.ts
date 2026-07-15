@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AccordionGroupComponent } from './accordion-group.component';
+import { AccordionComponent } from '../accordion.component';
 
 describe('AccordionGroupComponent', () => {
   let component: AccordionGroupComponent;
@@ -8,7 +9,8 @@ describe('AccordionGroupComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccordionGroupComponent ]
+      declarations: [ AccordionGroupComponent ],
+      providers: [ AccordionComponent ]
     })
     .compileComponents();
   }));

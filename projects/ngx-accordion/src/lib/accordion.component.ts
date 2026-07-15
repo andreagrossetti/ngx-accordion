@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { AccordionGroupComponent } from './accordion-group/accordion-group.component';
 
 @Component({
@@ -7,6 +7,7 @@ import { AccordionGroupComponent } from './accordion-group/accordion-group.compo
     <ng-content></ng-content>
   `,
     styleUrls: ['./accordion.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AccordionComponent {

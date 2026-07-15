@@ -19,6 +19,28 @@ https://stackblitz.com/edit/ngx-accordion
 yarn add @andreagrossetti/ngx-accordion
 ```
 
+## Compatibility
+
+From `v21` onwards the library's major version tracks the required Angular major version, so pick the release that matches the Angular version in your project:
+
+| Library version | Angular |
+|-----------------|---------|
+| `22.x`          | 22      |
+| `21.x`          | 21      |
+| `0.5.x`         | 20      |
+| `0.4.x`         | 17      |
+| `0.3.x`         | 13      |
+
+The `latest` tag always points to the newest Angular release. To install the line for an older Angular version, pin the range explicitly:
+
+```bash
+# latest (Angular 22)
+yarn add @andreagrossetti/ngx-accordion
+
+# a specific line, e.g. for Angular 21
+yarn add @andreagrossetti/ngx-accordion@^21
+```
+
 ## Setup
 ```typescript
 import { AccordionModule } from '@andreagrossetti/ngx-accordion';
